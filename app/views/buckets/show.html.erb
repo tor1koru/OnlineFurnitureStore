@@ -1,0 +1,17 @@
+<h1>My Bucket</h1>
+
+<% if @bucket_items.any? %>
+  <ul>
+    <% @bucket_items.each do |item| %>
+      <li>
+        <%= item.product.name %> -
+        <%= item.quantity %> x <%= item.product.price %> USD
+        <%= link_to 'Remove', remove_from_bucket_path(item.product), method: :delete %>
+      </li>
+    <% end %>
+  </ul>
+
+  <p>Total: <%= @bucket_items.sum { |item| item.quantity * item.product.price } %> USD</p>
+<% else %>
+  <p>Your bucket is empty.</p>
+<% end %>

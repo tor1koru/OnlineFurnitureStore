@@ -1,0 +1,6 @@
+<h1><%= @profile.user.email %></h1>
+<p><%= @profile.bio %></p>
+
+<% if current_user == @profile.user %>
+  <%= link_to 'Edit Profile', edit_profile_path(@profile) %>
+<% end %>

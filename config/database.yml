@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: online_furniture_store
+  pool: 5
+  username: postgres
+  password: postgres

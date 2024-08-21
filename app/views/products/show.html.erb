@@ -1,0 +1,7 @@
+<h1><%= @product.name %></h1>
+<p><%= @product.description %></p>
+<p>Price: <%= @product.price %> USD</p>
+<p>Category: <%= @product.category.name %></p>
+<p>Manufacturer: <%= link_to @product.manufacturer.email, profile_path(@product.manufacturer.profile) %></p>
+
+<%= link_to 'Add to Bucket', add_to_bucket_path(@product), method: :post %>

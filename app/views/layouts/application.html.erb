@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OnlineFurnitureStore</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+</head>
+
+<body>
+<header>
+  <div class="navbar">
+    <div class="store-name">
+      <h1>Online Furniture Store</h1>
+    </div>
+    <nav class="navbar-links">
+      <%= link_to "Home", root_path, class: "nav-link" %>
+      <%= link_to "Profile", profile_path(current_user.profile), class: "nav-link" if user_signed_in? %>
+      <%= link_to "Log In", new_user_session_path, class: "nav-link" unless user_signed_in? %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" unless user_signed_in? %>
+      <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link" if user_signed_in? %>
+      <%= link_to "My Orders", orders_path, class: "nav-link" if user_signed_in? %>
+      <%= link_to "Shopping Cart", bucket_path(current_user.bucket), class: "nav-link" if user_signed_in? %>
+    </nav>
+  </div>
+</header>
+
+<div class="content">
+  <%= yield %>
+</div>
+
+<footer>
+  <p>&copy; 2024 Online Furniture Store. All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<h1>All Products</h1>
+
+<ul>
+  <% @products.each do |product| %>
+    <li>
+      <%= link_to product.name, product_path(product) %> -
+      <%= product.price %> USD -
+      <%= link_to product.manufacturer.email, profile_path(product.manufacturer.profile) %> -
+      <%= product.category.name %>
+    </li>
+  <% end %>
+</ul>
